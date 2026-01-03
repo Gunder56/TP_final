@@ -1,3 +1,6 @@
+/**
+ * Énumération représentant les différents types de ressources (jetons) dans le jeu Splendor.
+ */
 public enum Resource {
     DIAMOND,
     SAPPHIRE,
@@ -5,6 +8,10 @@ public enum Resource {
     ONYX,
     RUBY;
 
+    /**
+     * Retourne le nom complet français de la ressource avec son symbole.
+     * @return Le nom français et le symbole Unicode
+     */
     public String toString(){
         switch(this){
             case EMERALD:
@@ -22,6 +29,10 @@ public enum Resource {
         }
     }
 
+    /**
+     * Retourne le symbole Unicode de la ressource avec sa première lettre.
+     * @return Le symbole et la première lettre
+     */
     public String toSymbol(){
         switch(this){
             case EMERALD:

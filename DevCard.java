@@ -22,6 +22,7 @@ public class DevCard implements Displayable {
         this.points = nbPoints;
         this.cost = resources;
         }
+        
     /**
      * Constructeur d'une carte de développement avec des valeurs individuelles pour le coût.
      * @param tier le niveau de la carte (1, 2 ou 3)
@@ -40,12 +41,13 @@ public class DevCard implements Displayable {
         
         this.points = nbPoints;
         this.cost = new Resources();
-        cost.setNbResource(Resource.DIAMOND, nbDIAMOND);
-        cost.setNbResource(Resource.SAPPHIRE, nbSAPPHIRE);
-        cost.setNbResource(Resource.EMERALD, nbEMERALD);
-        cost.setNbResource(Resource.RUBY, nbRUBY);
-        cost.setNbResource(Resource.ONYX, nbONYX);
+        this.cost.setNbResource(Resource.DIAMOND, nbDIAMOND);
+        this.cost.setNbResource(Resource.SAPPHIRE, nbSAPPHIRE);
+        this.cost.setNbResource(Resource.EMERALD, nbEMERALD);
+        this.cost.setNbResource(Resource.RUBY, nbRUBY);
+        this.cost.setNbResource(Resource.ONYX, nbONYX);
         }
+        
     /**
      * Retourne le niveau (tier) de la carte.
      * @return le tier (1, 2 ou 3)
@@ -53,6 +55,7 @@ public class DevCard implements Displayable {
     public int getTier(){
         return tier;
     }
+    
     /**
      * Retourne le type de ressource que la carte produit.
      * @return le type de ressource (enum Resource)
@@ -60,6 +63,7 @@ public class DevCard implements Displayable {
     public Resource getResourceType(){
         return resourceType;
     }
+    
     /**
      * Retourne le nombre de points de victoire de la carte.
      * @return le nombre de points
@@ -67,6 +71,7 @@ public class DevCard implements Displayable {
     public int getPoints(){
         return points;
     }
+    
     /**
      * Retourne l'objet Resources contenant le coût de la carte.
      * @return l'objet Resources du coût
@@ -74,6 +79,7 @@ public class DevCard implements Displayable {
     public Resources getCost(){
         return cost;
     }
+    
     /**
      * Retourne la quantité de diamants requise pour acheter la carte.
      * @return le nombre de diamants
@@ -81,6 +87,7 @@ public class DevCard implements Displayable {
     public double getDIAMOND(){
         return cost.getNbResource(Resource.DIAMOND);
     }
+    
     /**
      * Retourne la quantité de saphirs requise pour acheter la carte.
      * @return le nombre de saphirs
@@ -88,6 +95,7 @@ public class DevCard implements Displayable {
     public double getSAPPHIRE(){
         return cost.getNbResource(Resource.SAPPHIRE);
     }
+    
     /**
      * Retourne la quantité d'émeraudes requise pour acheter la carte.
      * @return le nombre d'émeraudes
@@ -95,6 +103,7 @@ public class DevCard implements Displayable {
     public double getEMERALD(){
         return cost.getNbResource(Resource.EMERALD);
     }
+    
     /**
      * Retourne la quantité de rubis requise pour acheter la carte.
      * @return le nombre de rubis
@@ -102,6 +111,7 @@ public class DevCard implements Displayable {
     public double getRUBY(){
         return cost.getNbResource(Resource.RUBY);
     }
+    
     /**
      * Retourne la quantité d'onyx requise pour acheter la carte.
      * @return le nombre d'onyx

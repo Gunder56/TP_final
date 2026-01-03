@@ -1,74 +1,64 @@
-/**
- * Auteur : de BESOMBES Marc-Eloi 
- * La classe Resources modélise un ensemble de ressources dans le jeu.
- */
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * La classe Resources représente un ensemble de ressources dans le jeu Splendor.
+ * Elle étend HashMap pour stocker le nombre de chaque type de ressource.
+ * Permet de gérer les jetons et les bonus des cartes achetées.
+ */
 public class Resources extends HashMap<Resource, Integer>{
 
     /**
-     * Constructeur d'objets de classe Resources
+     * Constructeur de Resources avec celui de HashMap.
      */
     public Resources() {
         super();
     }
 
     /**
-     * Retourne le nombre de ressources disponibles pour un type donné.
-     *
-     * @param r le type de ressource dont on veut connaître la quantité
+     * Retourne le nombre de jetons d'une ressource donnée.
+     * @param r La ressource recherchée
+     * @return Le nombre de jetons de cette ressource (0 si non trouvée)
      */
-    public int getNbResource(Resource r)
-    {
+    public int getNbResource(Resource r){
         return this.getOrDefault(r, 0);
     }
-    
+
     /**
-     * Définit le nombre de ressources disponibles pour un type donné.
-     *
-     * @param r le type de ressource
-     * @param v le nombre de ressources à définir (≥ 0)
-     */
-    public void setNbResource(Resource r, int v)
-    {
+     * Définit le nombre de jetons pour une ressource donnée.
+     * @param r La ressource
+     * @param v Le nombre de jetons à définir
+    */
+    public void setNbResource(Resource r, int v){
         this.put(r, v);
     }
     
     /**
-     * Met à jour le nombre de ressources disponibles pour un type donné.
-     * Si v > 0, ajoute v à la quantité actuelle.
-     * Si v < 0, retire |v| de la quantité actuelle.
-     * La quantité finale ne peut jamais être inférieure à 0.
-     *
-     * @param r le type de ressource
-     * @param v la quantité à ajouter (v>0) ou à retirer (v<0)
+     * Modifie le nombre de jetons pour une ressource donnée.
+     * @param r La ressource
+     * @param v Le nombre de jetons à ajouter (positif) ou retirer (négatif)
      */
-    public void updateNbResource(Resource r, int v)
-    {
+    public void updateNbResource(Resource r, int v){
         int Nb = this.getOrDefault(r, 0);
         Nb += v;
-        if (Nb >= 0)
-        {
+        if(Nb >= 0){
             this.put(r, Nb);
-        }
-        else{
+        } else {
             this.put(r, 0);
         }
     }
-    
+
     /**
-     * Retourne l'ensemble des ressources pour lesquelles la quantité disponible est strictement positive.
-     *
-     * @return un Set contenant les types de ressources disponibles
+     * Retourne l'ensemble des ressources disponibles (avec quantité > 0).
+     * @return Un ensemble des ressources possédées
      */
-    public Set<Resource> getAvailableResources()
-    {
+    public Set<Resource> getAvailableResources(){
         Set<Resource> available = new HashSet<>();
-        for(Resource r : this.keySet()) {
-            if(this.get(r) > 0) {
-                available.add(r);}
+        for(Resource r : this.keySet()){
+            if(this.get(r) > 0){
+                available.add(r);
+            }
         }
         return available;
     }

@@ -24,7 +24,6 @@ public class Board implements Displayable {
     
     /**
      * Constructeur du plateau de jeu. Initialise les cartes, les piles mélangées et les ressources.
-     * @param nbJoueurs le nombres de joueurs de la partie.
      */
     public Board(int nbJoueurs){
         // les pile de cartes faces cacher
@@ -164,24 +163,29 @@ public class Board implements Displayable {
     
     /**
      * Retourne la carte visible à une position donnée sur le plateau.
-     * @param nbColonne l'indice de colonne (0-3)
-     * @param nbLigne l'indice de ligne (0-2, correspondant aux tiers)
-     * @return la DevCard à cette position, ou null si vide
+     * @param tierIndex L'indice du niveau (0-2)
+     * @param colIndex L'indice de la colonne (0-3)
+     * @return La carte à cette position, ou null si invalide
      */
-    public DevCard getCard(int nbColonne, int nbLigne){
-        return visibleCards[nbColonne][nbLigne];
+    public DevCard getCard(int tierIndex, int colIndex){
+    if (tierIndex < 0 || tierIndex > 2) return null;
+    if (colIndex < 0 || colIndex > 3) return null;
+    return visibleCards[tierIndex][colIndex]; // [tier][col]
     }
     
     /**
      * Remplace une carte par une nouvelle tirée de la pile correspondante.
-     * Si la pile est vide, la carte devient null.
-     * @param carte la carte à remplacer (utilisée pour déterminer le tier)
+     * @param carte La carte à remplacer
      */
     public void updateCard(DevCard carte){
-        DevCard newCarte;
-        for (int i = 0; i<3; i++){
-            if (carte.getTier() == i && !ListStack.get(i).isEmpty()){
-                carte = ListStack.get(i).pop();
+        if (carte == null) return;
+
+        int tierIndex = carte.getTier() - 1; // tier 1..3 -> index 0..2
+        if (tierIndex < 0 || tierIndex > 2) return;
+
+        for (int col = 0; col < 4; col++){
+            if (visibleCards[tierIndex][col] == carte){
+                visibleCards[tierIndex][col] = drawCard(carte.getTier());
                 return;
             }
         }
@@ -291,7 +295,7 @@ public class Board implements Displayable {
 
         //Card display
         String[] cardDisplay = Display.emptyStringArray(0, 0);
-        for(int i = 0; i<3; i++){ //-- parcourir les différents niveaux de carte (i)
+        for(int i = 2; i>=0; i--){ //-- parcourir les différents niveaux de carte (i)
             String[] tierCardsDisplay = Display.emptyStringArray(8, 0);
             for(int j = 0; j<4;j++){ //-- parcourir les 4 cartes faces visibles pour un niveau donné (j)
                 tierCardsDisplay = Display.concatStringArray(tierCardsDisplay, visibleCards[i][j]!=null ? visibleCards[i][j].toStringArray() : DevCard.noCardStringArray(), false);
