@@ -1,8 +1,9 @@
-import java.util.HashMap;
+  import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
+ * Auteur : Marc-Eloi
  * La classe Resources représente un ensemble de ressources dans le jeu Splendor.
  * Elle étend HashMap pour stocker le nombre de chaque type de ressource.
  * Permet de gérer les jetons et les bonus des cartes achetées.

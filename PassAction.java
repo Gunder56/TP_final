@@ -1,4 +1,5 @@
 /**
+ * Auteur : ghiles seddiki
  * La classe PassAction représente l'action de passer son tour.
  * Le joueur ne fait rien et cède son tour au joueur suivant.
  */

@@ -1,4 +1,5 @@
 /**
+ * Auteur : ghiles seddiki
  * Interface représentant une action que peut effectuer un joueur dans le jeu Splendor.
  * Une action modifie l'état du jeu et peut être l'achat d'une carte, la prise de jetons, ou passer son tour.
  */

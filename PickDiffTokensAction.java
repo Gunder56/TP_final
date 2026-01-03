@@ -1,4 +1,5 @@
 /**
+ * Auteur : ghiles seddiki
  * La classe PickDiffTokensAction représente l'action de prendre 3 jetons différents.
  * Le joueur prend 3 jetons de types différents du plateau.
  */

@@ -1,15 +1,12 @@
+import java.util.List;
+import java.util.ArrayList;
+
 /**
- * Auteur : ghiles
- * Version : 1.2
- * Depuis : 15/12
+ * Auteur : ghiles seddiki
  * 
  * La classe Game gère le déroulement principal du jeu Splendor.
  * Elle orchestre les tours de jeu, les actions des joueurs, et détermine le gagnant.
  */
-
-import java.util.List;
-import java.util.ArrayList;
-
 public class Game {
 
     private static final int ROWS_BOARD = 36, ROWS_CONSOLE = 8, COLS = 82;
@@ -38,7 +35,7 @@ public class Game {
         }
         this.nbre_joueurs = nbOfPlayers;
 
-        // IMPORTANT : ton Board actuel est un Board(int)
+        
         this.board = new Board(nbOfPlayers);
 
         this.players = new ArrayList<>();
@@ -124,18 +121,18 @@ public class Game {
      * @param player Le joueur qui doit potentiellement défausser
      */
     private void discardToken(Player player) {
-        // Le sujet dit : défausse seulement si le joueur a PLUS DE 10 jetons :contentReference[oaicite:6]{index=6}
         if (player.getNbTokens() <= 10) return;
-
-        List<Resource> toDiscard = player.chooseDiscardingTokens();
-
-        for (Resource res : toDiscard) {
-            // On retire du joueur...
-            player.updateNbResource(res, -1);
-            // ...et on rend AU PLATEAU (sinon le board se vide et le jeu bloque)
-            board.updateNbResource(res, +1);
+    
+        List<Resource> toDiscardList = player.chooseDiscardingTokens();
+    
+        Resources toDiscard = new Resources();
+        for (Resource r : toDiscardList) {
+            toDiscard.updateNbResource(r, 1);
         }
+    
+        new DiscardTokensAction(toDiscard).process(player, board);
     }
+
 
     /**
      * Vérifie si la partie est terminée.

@@ -5,6 +5,7 @@ import java.util.Scanner;
 import java.util.Set;
 
 /**
+ * Auteur : Hachem Kouhel Mohammed
  * Classe représentant un joueur humain dans le jeu Splendor.
  * Un joueur humain prend ses décisions par interaction avec l'utilisateur via la console.
  */

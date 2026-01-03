@@ -1,4 +1,5 @@
 /**
+ * Auteur : ghiles seddiki
  * La classe PickSameTokensAction représente l'action de prendre 2 jetons identiques.
  * Le joueur choisit un type de ressource et en prend 2 du plateau.
  */

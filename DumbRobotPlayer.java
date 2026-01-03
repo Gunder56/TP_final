@@ -3,6 +3,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
+ * Auteur : Hachem
  * Classe représentant un joueur robot avec une stratégie simple dans le jeu Splendor.
  * Ce robot suit une stratégie "gloutonne" : il essaie d'abord d'acheter des cartes,
  * puis de prendre des jetons, en suivant un ordre de priorité fixe.

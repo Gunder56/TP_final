@@ -1,4 +1,5 @@
 /**
+ * Auteur : ghiles seddiki
  * La classe BuyCardAction représente l'action d'acheter une carte de développement.
  * Vérifie les ressources disponibles, effectue le paiement, et ajoute la carte au joueur.
  */

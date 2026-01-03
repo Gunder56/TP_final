@@ -3,6 +3,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
+ * Auteur : Hachem Mohammed Kouhel
  * Classe abstraite représentant un joueur dans le jeu Splendor.
  * Un joueur dispose de ressources, de cartes achetées et accumule des points.
  * Cette classe fournit les fonctionnalités communes à tous les types de joueurs.
