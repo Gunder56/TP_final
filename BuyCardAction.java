@@ -64,10 +64,10 @@ public class BuyCardAction implements Action {
         // Ajout carte (ajoute déjà les points via Player.addPurchasedCard)
         player.addPurchasedCard(card);
 
-    /**
-     * Retourne une description textuelle de l'action.
-     * @return La description de l'action
-     */
+        /**
+         * Retourne une description textuelle de l'action.
+         * @return La description de l'action
+         */
         // Remplacer la carte sur le board
         board.updateCard(card);
         
